@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet("006")
 public class Servlet extends HttpServlet {
+
     @Override
     public void init() {
         System.out.println("init method");
@@ -17,7 +18,7 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet method");
-        var s = """
+        String s = """
                 <html>
                 <header>
                   <title>Hello World</title>

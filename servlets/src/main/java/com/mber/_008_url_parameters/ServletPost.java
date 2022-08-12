@@ -12,8 +12,8 @@ public class ServletPost extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var one = req.getParameter("one");
-        var two = req.getParameter("two");
+        String one = req.getParameter("one");
+        String two = req.getParameter("two");
 
         resp.getWriter().write(String.format("""
                 <html>

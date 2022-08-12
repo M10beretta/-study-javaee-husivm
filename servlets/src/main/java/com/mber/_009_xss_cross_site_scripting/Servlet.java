@@ -13,7 +13,7 @@ public class Servlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var one = req.getParameter("one");
+        String one = req.getParameter("one");
         one = Objects.isNull(one) ? "" : one.replaceAll("<", "&lt").replaceAll(">", "&gt;");
 
         resp.getWriter().write(String.format("""

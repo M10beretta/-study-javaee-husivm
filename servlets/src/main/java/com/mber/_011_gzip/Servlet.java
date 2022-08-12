@@ -14,8 +14,8 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getHeader("Accept-Encoding").contains("gzip")) {
-            var printWriter = new PrintWriter(new GZIPOutputStream(resp.getOutputStream()));
-            printWriter.write("hello world");
+            PrintWriter writer = new PrintWriter(new GZIPOutputStream(resp.getOutputStream()));
+            writer.write("hello world");
         }
     }
 }

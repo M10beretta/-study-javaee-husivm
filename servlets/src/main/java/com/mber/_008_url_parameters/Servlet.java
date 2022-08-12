@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Enumeration;
 
 @WebServlet("008")
 public class Servlet extends HttpServlet {
@@ -17,8 +18,8 @@ public class Servlet extends HttpServlet {
 
         System.out.printf("ParameterValues(four): %s%n", Arrays.toString(req.getParameterValues("four")));
 
-        var builder = new StringBuilder("ParameterNames: ");
-        var names = req.getParameterNames();
+        StringBuilder builder = new StringBuilder("ParameterNames: ");
+        Enumeration<String> names = req.getParameterNames();
         while (names.hasMoreElements()){
             builder.append(" ").append(names.nextElement());
         }

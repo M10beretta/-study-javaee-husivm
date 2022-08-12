@@ -12,7 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @WebServlet("007")
 public class Servlet extends HttpServlet {
-    private static final @Getter AtomicInteger i = new AtomicInteger(0);
+
+    @Getter
+    private static final AtomicInteger i = new AtomicInteger(0);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -6,15 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
 
 @WebServlet("010")
 public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var headerNames = req.getHeaderNames();
+        Enumeration<String> headerNames = req.getHeaderNames();
 
         while (headerNames.hasMoreElements()){
-            var nextElement = headerNames.nextElement();
+            String nextElement = headerNames.nextElement();
             System.out.printf("%s = %s%n", nextElement, req.getHeader(nextElement));
         }
 
