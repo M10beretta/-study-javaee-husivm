@@ -1,9 +1,8 @@
 package com.mber._045_loc_and_dependency_injection;
 
-import lombok.*;
+import lombok.NoArgsConstructor;
 
 import javax.inject.Inject;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,37 +13,31 @@ import java.io.IOException;
 @NoArgsConstructor
 public class Servlet extends HttpServlet {
     @Inject
-    private Student studentF;
-
-    private Student studentC;
+    private Student studentMike;
+    private Student studentElen;
+    private Student studentHank;
 
     @Inject
-    public Servlet(Student studentC) {
-        this.studentC = studentC;
+    public Servlet(Student student) {
+        this.studentElen = student;
     }
 
-    private Student studentS;
-
     @Inject
-    public void setStudentS(Student studentS) {
-        this.studentS = studentS;
+    public void setStudentHank(Student student) {
+        this.studentHank = student;
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, @NonNull HttpServletResponse resp) throws ServletException, IOException {
-        studentF.setName("Mike");
-        studentC.setName("Elen");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        studentMike.setName("Mike");
+        studentElen.setName("Elen");
+        studentHank.setName("Hank");
+
         resp.getWriter().write(String.format("""
                 studentF: %s
                 studentC: %s
                 studentS: %s
-                """, studentF, studentC, studentS));
+                """, studentMike, studentElen, studentHank));
     }
 }
 
-@Getter
-@Setter
-@ToString
-class Student {
-    private String name;
-}
