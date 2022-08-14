@@ -1,6 +1,9 @@
 package com.mber._045_loc_and_dependency_injection;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
@@ -39,5 +42,12 @@ public class Servlet extends HttpServlet {
                 studentS: %s
                 """, studentMike, studentElen, studentHank));
     }
+}
+
+@Getter
+@Setter
+@ToString
+class Student {
+    private String name;
 }
 
