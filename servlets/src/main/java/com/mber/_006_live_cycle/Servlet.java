@@ -19,7 +19,7 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet method");
         String s = """
-                <html>f
+                <html>
                 <header>
                   <title>Hello World</title>
                 </header>
