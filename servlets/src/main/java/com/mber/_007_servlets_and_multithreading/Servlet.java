@@ -16,21 +16,21 @@ import java.util.stream.IntStream;
 @WebServlet("007")
 public class Servlet extends HttpServlet {
 
-    private static final ReentrantLock LOCK = new ReentrantLock();
+    private final ReentrantLock lock = new ReentrantLock();
 
     private static int i;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        lock.lock();
         try {
-            LOCK.lock();
             var begin = System.currentTimeMillis();
             for (int j = 0; j < 100_000_000; j++) {
                 i++;
             }
             System.out.printf("%s %s %d%n", Thread.currentThread().getName(), i, System.currentTimeMillis() - begin);
         } finally {
-            LOCK.unlock();
+            lock.unlock();
         }
     }
 
