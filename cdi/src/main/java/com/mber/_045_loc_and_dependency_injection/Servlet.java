@@ -15,6 +15,7 @@ import java.io.IOException;
 @WebServlet("045")
 @NoArgsConstructor
 public class Servlet extends HttpServlet {
+
     @Inject
     private Student studentMike;
     private Student studentElen;
