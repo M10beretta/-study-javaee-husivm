@@ -20,6 +20,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @WebServlet("046")
 public class Servlet extends HttpServlet {
+
     @Inject
     @StudentAnnotation
     private Person personMike;
@@ -38,6 +39,7 @@ public class Servlet extends HttpServlet {
 }
 
 interface Person {
+
     String getName();
 
     void setName(String name);
@@ -46,6 +48,7 @@ interface Person {
 @StudentAnnotation
 @ToString
 class Student implements Person {
+
     @Getter
     @Setter
     private String name;
@@ -53,6 +56,7 @@ class Student implements Person {
 
 @ToString
 class Worker implements Person {
+
     @Getter
     @Setter
     private String name;

@@ -14,6 +14,7 @@ import java.io.IOException;
 
 @WebServlet("047")
 public class Servlet extends HttpServlet {
+
     @Inject
     private Person person;
 
@@ -25,6 +26,7 @@ public class Servlet extends HttpServlet {
 }
 
 interface Person {
+
     String getName();
 
     void setName(String name);
@@ -33,6 +35,7 @@ interface Person {
 @Alternative
 @ToString
 class Student implements Person {
+
     @Getter
     @Setter
     private String name;
@@ -40,6 +43,7 @@ class Student implements Person {
 
 @ToString
 class Worker implements Person {
+
     @Getter
     @Setter
     private String name;
